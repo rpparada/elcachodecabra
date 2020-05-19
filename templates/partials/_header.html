@@ -1,0 +1,42 @@
+{% load static %}
+
+
+<!-- Header -->
+<header id="header" data-transparent="true" data-responsive-fixed="true" class="dark submenu-light">
+    <div class="header-inner">
+        <div class="container">
+            <!--Logo-->
+            <div id="logo">
+                <a href="{% url 'index' %}">
+                  <img src="{% static 'images/iconos/LOGOSINFNDO_aji.png' %}" class="logo-default">
+                  <img src="{% static 'images/iconos/LOGOBLANSINFOND_aji.png' %}" class="logo-dark">
+                </a>
+            </div>
+            <!--End: Logo-->
+
+            <!--Navigation Resposnive Trigger-->
+            <div id="mainMenu-trigger">
+                <a class="lines-button x"><span class="lines"></span></a>
+            </div>
+            <!--end: Navigation Resposnive Trigger-->
+
+            <!--Navigation-->
+            <div id="mainMenu" class="menu-one-page">
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li><a href="#slider">Home</a></li>
+                            <li><a href="#section-promo">Promociones</a></li>
+                            <li><a href="#section-menu">Menus</a></li>
+                            <li><a href="#section-gallery">Galería</a></li>
+                            <li><a href="#section-contacto">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--end: Navigation-->
+
+        </div>
+    </div>
+</header>
+<!-- end: Header -->

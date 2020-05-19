@@ -1,6 +1,246 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block title %} | HOME{% endblock %}
 {% block content %}
-<h1>Index</h1>
+
+<!-- Inspiro Slider -->
+<div id="slider" class="inspiro-slider slider-fullscreen">
+    <!-- Slide 1 -->
+    <div class="slide" data-bg-video="{% static 'video/video.mp4' %}">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="slide-captions text-left text-light">
+                <!-- Captions -->
+                <h2 class="text-uppercase text-lg">HTML5 VIDEO</h2>
+                <p class="text-small">POLO is packed with 220+ pre-made layouts that allow you to quickly jumpstart your project. Completely customizable for creating your own designs.</p>
+                <div>
+                    <div><a href="#welcome" class="btn scroll-to">Explore more</a></div>
+                </div>
+                <!-- end: Captions -->
+            </div>
+        </div>
+    </div>
+    <!-- end: Slide 1 -->
+</div>
+<!--end: Inspiro Slider -->
+
+<!-- PROPERTY FEATURES -->
+<section id="section-promo" class="p-t-100">
+    <div class="container">
+        <div class="heading-text heading-section text-center">
+            <h2>Nuestras Pizzas</h2>
+            <span class="lead">Masa casera con salsa pomodoro y base de queso con la variedad que guste.</span>
+        </div>
+
+        <div class="row">
+          {% for promo in promos %}
+            <div class="col-lg-4">
+                <div class="icon-box effect medium square color">
+                    <div class="icon"><i class="fa {{ promo.icono }}"></i></a> </div>
+                    <h3>{{ promo.nombre|title }}</h3>
+                    <p>{{ promo.descripcion }}.</p>
+                </div>
+            </div>
+          {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- end: PROPERTY FEATURES -->
+
+<!-- MENU LIST PRICE -->
+<section id="section-menu" class="p-t-100 p-b-100 text-light" data-bg-parallax="{% static 'images/shaian-ramesht-exSEmuA7R7k-unsplash.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="text-medium m-b-40">MENU</h2>
+            </div>
+            <div class="col-lg-6" data-animate="fadeIn">
+
+              <h3>Familiar 38cm</h3>
+
+                <ul class="price-menu-list">
+                  {% for pizzafam in menuFamiliar %}
+                    <li>
+                        <h2 class="font-nothing-you-could-do">{{ pizzafam.nombre|title }}</h2>
+                        <p>{{ pizzafam.ingredientes }}</p>
+                        <h3>$ {{ pizzafam.precio|intcomma }}</h3>
+                    </li>
+                  {% endfor %}
+                </ul>
+
+
+            </div>
+            <div class="col-lg-6" data-animate="fadeIn">
+
+              <h3>Individual 20cm</h3>
+
+                <ul class="price-menu-list">
+                  {% for pizzaind in menuIndividual %}
+                    <li>
+                        <h2 class="font-nothing-you-could-do">{{ pizzaind.nombre|title }}</h2>
+                        <p>{{ pizzaind.ingredientes }}</p>
+                        <h3>$ {{ pizzaind.precio|intcomma }}</h3>
+                    </li>
+                  {% endfor %}
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end: MENU LIST PRICE -->
+
+<!-- GALLERY -->
+<section id="section-gallery" class="p-t-150 p-b-150">
+    <div class="container">
+        <div class="row">
+            <div data-animate-delay="100" data-animate="fadeInUp" class="col-lg-4">
+                <h5 class="m-b-0">The food</h5>
+                <h2 class="text-lg font-herr-von-muellerhoff text-colored">Gallery</h2>
+                <p>The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.
+                </p>
+            </div>
+
+            <div data-animate-delay="300" data-animate="fadeInUp" class="col-lg-8">
+                <!-- Portfolio -->
+                <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="10">
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto01.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto01.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto02.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto02.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+                    <!-- portfolio item -->
+
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto03.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto03.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto04.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto04.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto05.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto05.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto06.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto06.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto07.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto07.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto08.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto08.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="{% static 'images/foto09.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="{% static 'images/foto09.jpg' %}" class="btn btn-light btn-rounded">Zoom</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                </div>
+                <!-- end: Portfolio -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end: GALLERY -->
+
+
+
 {% endblock %}
