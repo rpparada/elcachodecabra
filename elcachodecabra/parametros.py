@@ -1,6 +1,6 @@
 parECC = {
     'tamanoPlato' : [
-        ('FA','Familiar 38cm'),
-        ('IN','Individual 20cm'),
+        ('FA','Familiar'),
+        ('IN','Individual'),
     ]
 }

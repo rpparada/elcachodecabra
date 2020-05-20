@@ -1,18 +1,17 @@
 from django.shortcuts import render, HttpResponse
 
-from menu.models import menu, promociones
+from menu.models import promociones, pizza
 
 # Create your views here.
 def index(request):
 
-    menuFamiliar = menu.objects.filter(tamaño='FA').order_by('id')
-    menuIndividual = menu.objects.filter(tamaño='IN').order_by('id')
+    menuIzq = pizza.objects.all().order_by('id')[:6]
+    menuDer = pizza.objects.all().order_by('id')[6:]
     promos = promociones.objects.all().order_by('id')
 
-
     context = {
-        'menuFamiliar': menuFamiliar,
-        'menuIndividual': menuIndividual,
+        'menuIzq': menuIzq,
+        'menuDer': menuDer,
         'promos': promos,
     }
 
