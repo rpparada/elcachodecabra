@@ -1,8 +1,14 @@
-/* 
+/*
 
 1. Add your custom Css styles below
-2. Place the this code in your template: 
+2. Place the this code in your template:
 
  <link href="css/custom.css" rel="stylesheet">
 
 */
+
+p.sinmargen { margin: 0 !important; }
+h2.sinmargen { margin: 0 !important; }
+h3.sinmargen { margin: 0 !important; }
+#pideya { background-color: #fa0000;
+          border-color: #fa0000; }

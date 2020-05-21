@@ -19,7 +19,7 @@
                 <p class="text-small sinmargen">Domingo 18:00 - 23:00</p>
                 <p class="text-small">Exclusivo comuna de Maipú</p>
                 <div>
-                    <div><a href="tel:(+56) 9 7216 5666" class="btn scroll-to">Pide Ya!!</a></div>
+                    <div><a href="tel:(+56) 9 7216 5666" class="btn scroll-to" id="pideya">Pide Ya!!</a></div>
                 </div>
                 <!-- end: Captions -->
 
@@ -38,6 +38,7 @@
             <span class="lead">Todas nuestras pizzas son hechas con masa casera, salsa pomodoro y base de queso en la variedad que gustes.</span>
         </div>
 
+        {% if promos %}
         <div class="row">
           {% for promo in promos %}
             <div class="col-lg-4">
@@ -50,6 +51,7 @@
           {% endfor %}
 
         </div>
+        {% endif %}
     </div>
 </section>
 <!-- end: PROPERTY FEATURES -->
@@ -68,7 +70,7 @@
             </div>
 
             <div class="col-lg-6" data-animate="fadeIn">
-
+              {% if menuIzq %}
                 <ul class="price-menu-list">
                   {% for pizzaIzq in menuIzq %}
                     <li>
@@ -78,11 +80,11 @@
                     </li>
                   {% endfor %}
                 </ul>
-
+              {% endif %}
 
             </div>
             <div class="col-lg-6" data-animate="fadeIn">
-
+              {% if menuDer %}
                 <ul class="price-menu-list">
                   {% for pizzaDer in menuDer %}
                     <li>
@@ -92,7 +94,7 @@
                     </li>
                   {% endfor %}
                 </ul>
-
+              {% endif %}
 
             </div>
         </div>
@@ -248,10 +250,5 @@
 </section>
 <!-- end: GALLERY -->
 
-<style type="text/css">
-p.sinmargen { margin: 0 !important; }
-h2.sinmargen { margin: 0 !important; }
-h3.sinmargen { margin: 0 !important; }
-</style>
 
 {% endblock %}
